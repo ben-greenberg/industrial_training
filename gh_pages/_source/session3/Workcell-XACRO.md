@@ -31,6 +31,8 @@ Specifically, you will need to:
 
     1. You can install the debian packages: `sudo apt install ros-kinetic-ur-description ros-kinetic-ur-kinematics`
 
+^^^No Melodic package yet, can't install the kinetic ones^^^
+
     1. You can clone it from [GitHub](https://github.com/ros-industrial/universal_robot) to your catkin workspace:
 
        ```
@@ -39,6 +41,12 @@ Specifically, you will need to:
        catkin build
        source ~/catkin_ws/devel/setup.bash
        ```
+
+^^^When building, I get the warning 
+"In file included from /home/ros-industrial/catkin_ws/src/universal_robot/ur_kinematics/src/ur_moveit_plugin.cpp:75:0:
+/opt/ros/melodic/include/class_loader/class_loader.h:36:2: warning: #warning Including header <class_loader/class_loader.h> is deprecated, include <class_loader/class_loader.hpp> instead. [-Wcpp]
+ #warning Including header <class_loader/class_loader.h> is deprecated, \
+  ^~~~~~~" ^^^
 
     >It’s not uncommon for description packages to put each “module”, “part”, or “assembly” into its own file. In many cases, a package will also define extra files that define a complete cell with the given part so that we can easily visually inspect the result. The UR package defines such a file for the UR5 ([ur5_robot.urdf.xacro](https://github.com/ros-industrial/universal_robot/blob/indigo-devel/ur_description/urdf/ur5_robot.urdf.xacro)): It’s a great example for this module.
 
@@ -82,9 +90,10 @@ Specifically, you will need to:
     </launch>
     ```
 
- 1. Check the updated URDF in RViz, using the launch file you just created:
+ 1. Source your environment `source ~/catkin_ws/devel/setup.bash` then check the updated URDF in RViz, using the launch file you just created:
 
     `roslaunch myworkcell_support urdf.launch`
+^^^Received this warning while running: "xacro: in-order processing became default in ROS Melodic. You can drop the option." ^^^
 
     * Set the 'Fixed Frame' to 'world' and add the RobotModel and TF displays to the tree view on the left, to show the robot and some transforms.
     * Try moving the joint sliders to see the UR5 robot move.
