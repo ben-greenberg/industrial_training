@@ -11,6 +11,10 @@
     roslaunch myworkcell_moveit_config myworkcell_planning_execution.launch
     ```
 
+^^^Error: Resource not found: industrial_robot_simulator^^^
+	This is found within the industrial-core package which does not yet seem to have been released for melodic
+	I downloaded the kinetic-devel version of industrial core and saved it in catkin_ws/src, after rebuilding and resourcing this launch file runs, not yet sure what impact using the kinetic version may have
+
 ## Plugin Display Options
 
  1. Find and test the following display options in the Displays panel, _Motion Planning_ display
@@ -75,6 +79,8 @@
       * try disabling the Use Collision-Aware IK setting on the Context tab
 
       * see that the collisions are still detected, but the solver no longer searches for a collision-free solution
+
+	^^^ I was unable to plan a collision-free solution, I just get the message the the motion planning failed^^^
 
     * Try to plan a path through the obstacle
 
